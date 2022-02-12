@@ -1,16 +1,20 @@
-window.addEventListener('keydown',function(e){
-let key =this.document.querySelector(`.key[data-key="${e.keyCode}"]`)
-if(!key){
-return;
-}else{
-  key.classList.toggle("playing")
-}
+
+
+
+window.addEventListener('keydown', function playSound(e) {
+  const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
+  if (!key){
+    return;
+  }else{
+    key.classList.add('playing')
+  };
+ 
 })
-window.addEventListener('transitionend',function(e){
-  let keys =this.document.querySelector(`.key[data-key="${e.keyCode}"]`)
-if(!keys){
-return;
-}else{
-  keys.classList.remove("playing")
-}
-})
+
+window.addEventListener('transitionend', function removeTransition(e) {
+    if (e.propertyName !== 'transform') {
+      return
+    }else{
+    e.target.classList.remove('playing')}}),
+
+window.addEventListener('keydown', playSound)
